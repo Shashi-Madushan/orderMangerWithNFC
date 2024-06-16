@@ -14,7 +14,6 @@ import java.time.LocalTime;
 
 public class DayViewRepo {
     public static ObservableList<OrderTm> generateReport(LocalTime startTime, LocalTime endTime, Date passedDate) throws SQLException {
-        System.out.println(" st ed");
         ObservableList<OrderTm> list = FXCollections.observableArrayList();
 
         String sql = "SELECT * FROM orders a JOIN employee e ON e.employee_id = a.employee_id WHERE date = ? AND place_time BETWEEN ? AND ?";
@@ -50,7 +49,6 @@ public class DayViewRepo {
     }
 
     public static ObservableList<OrderTm> generateReport(LocalTime startTime, Date passedDate) throws SQLException {
-        System.out.println(" st");
         ObservableList<OrderTm> list = FXCollections.observableArrayList();
 
         String sql = "SELECT * FROM orders a JOIN employee e ON e.employee_id = a.employee_id WHERE date = ? AND place_time >= ?";

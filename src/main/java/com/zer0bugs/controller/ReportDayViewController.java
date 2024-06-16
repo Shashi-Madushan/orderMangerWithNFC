@@ -74,7 +74,8 @@ public class ReportDayViewController {
     private LocalTime endTime;
     private LocalTime startTime;
     private Date passedDate;
-
+    private String start;
+    private String end;
 
     public void initialize(Date date) {
         setCellValueFactory();
@@ -139,8 +140,10 @@ public class ReportDayViewController {
             System.out.println(e.getMessage());
         }
 
-        clearAll();
+        start = String.valueOf(startTime);
+        end = String.valueOf(endTime);
 
+        clearAll();
     }
 
     private void clearAll() {
@@ -198,14 +201,15 @@ public class ReportDayViewController {
         // Add some space between the title and the table
         document.add(new Paragraph("\n"));
 
-        String subDescription = "";
-        if (startTime != null && endTime != null) {
-            subDescription = "Date : " + LocalDate.now() + "\t\t\t From : " + startTime + "\t To : " + endTime;
-        } else if (endTime == null) {
-            subDescription = "Date : " + LocalDate.now() + "\t\t\t From : " + startTime;
-        } else if (startTime == null){
-            subDescription = "Date : " + LocalDate.now();
+        String subDescription = "Date : " + LocalDate.now();
+        if (!start.equals("null") && !end.equals("null")) {
+            subDescription = "Date : " + LocalDate.now() + "\t\t\t From : " + start + "\t\t To : " + end;
+        } else if (!start.equals("null") && end.equals("null")) {
+            subDescription = "Date : " + LocalDate.now() + "\t\t\t From : " + start;
         }
+
+        start = null;
+        end = null;
 
         Paragraph pdfSubDescription = new Paragraph(subDescription)
                 .setFontSize(12)
