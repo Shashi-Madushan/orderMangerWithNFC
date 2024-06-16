@@ -6,10 +6,12 @@ import com.zer0bugs.model.Employee;
 import com.zer0bugs.model.tm.EmployeeTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class EmployeeRepo {
 
@@ -70,6 +72,26 @@ public class EmployeeRepo {
         }
 
         return 0;
+    }
+
+    public static boolean bulckSaveDataToDatabase(List<String[]> data) {
+        try {
+            String insertQuery = "INSERT INTO employee (employee_id, name, department) VALUES (?, ?, ?) " ;
+            PreparedStatement pstmt = DbConnection.getInstance().getConnection().prepareStatement(insertQuery);
+
+            for (String[] row : data) {
+                pstmt.setString(1, row[0]);
+                pstmt.setString(2, row[1]);
+                pstmt.setString(3, row[2]);
+                pstmt.addBatch();
+            }
+
+            int[] results = pstmt.executeBatch();
+            return results.length == data.size();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

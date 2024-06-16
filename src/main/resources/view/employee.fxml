@@ -26,7 +26,7 @@
                 <TextField fx:id="txtName" layoutX="41.0" layoutY="176.0" maxWidth="300.0" onAction="#txtNameAction" onKeyReleased="#txtNameKeyReleaseAction" prefHeight="24.0" prefWidth="288.0" style="-fx-background-radius: 5;" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="176.0" />
                 <Label layoutX="41.0" layoutY="233.0" text="Employee Department" AnchorPane.leftAnchor="41.0" />
                 <JFXComboBox fx:id="comboBoxDepartment" layoutX="41.0" layoutY="270.0" prefHeight="24.0" prefWidth="288.0" AnchorPane.leftAnchor="41.0" />
-                <JFXButton layoutX="487.0" layoutY="400.0" onAction="#btnSaveAction" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 5;" text="  Save" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="172.0">
+                <JFXButton layoutX="40.0" layoutY="328.0" onAction="#btnSaveAction" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 5;" text="  Save" textFill="WHITE" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="40.0">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -50,9 +50,14 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <JFXButton layoutX="635.0" layoutY="400.0" onAction="#loadFromeExcelBtnOnAction" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 10; -fx-background-radius: 10;" text="Load from Excel" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="24.0">
+            <JFXButton layoutX="490.0" layoutY="402.0" onAction="#loadFromeExcelBtnOnAction" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 10; -fx-background-radius: 10;" text="Load from Excel" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="169.0">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="633.0" layoutY="402.0" onAction="#bulckSvaeBtnOnAction" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: white; -fx-border-color: #1e90ff; -fx-background-radius: 12; -fx-border-radius: 12;" text="Save" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="26.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
             </children>
