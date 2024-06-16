@@ -204,4 +204,20 @@ public class EmployeeController {
             }
         }
     }
+
+    @FXML
+    void bulckSvaeBtnOnAction(ActionEvent event) {
+
+            try {
+                if (EmployeeRepo.bulckSaveDataToDatabase(data)) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved !!").show();
+                    clear();
+                } else {
+                    new Alert(Alert.AlertType.WARNING, "Employee Unsaved !!").show();
+                }
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+       bulckEmployeeShowTabeel.getColumns().clear();
+    }
 }
