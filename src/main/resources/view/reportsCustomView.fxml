@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="570.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.ReportCustomViewController">
    <children>
@@ -28,7 +29,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="monthViewTabel" layoutX="19.0" layoutY="91.0" minHeight="432.0" minWidth="779.0" onMouseClicked="#tableRowOnClick" prefHeight="432.0" prefWidth="779.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="91.0">
+      <TableView fx:id="monthViewTabel" layoutX="19.0" layoutY="91.0" minHeight="384.0" minWidth="779.0" onMouseClicked="#tableRowOnClick" prefHeight="384.0" prefWidth="779.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="91.0">
          <columns>
             <TableColumn fx:id="colDate" prefWidth="504.0" text="Date" />
             <TableColumn fx:id="colOrder" minWidth="0.0" prefWidth="146.0" text="Toal Orders" />
@@ -38,11 +39,16 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="538.0" layoutY="523.0" minHeight="30.0" minWidth="258.0" prefHeight="30.0" prefWidth="258.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="538.0" AnchorPane.rightAnchor="15.0">
+      <HBox layoutX="538.0" layoutY="492.0" minHeight="30.0" minWidth="258.0" prefHeight="30.0" prefWidth="258.0" AnchorPane.bottomAnchor="48.0" AnchorPane.rightAnchor="15.0">
          <children>
-            <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" />
-            <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" />
+            <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
+      <JFXButton layoutX="674.0" layoutY="528.0" onAction="#genaratePdfBtnOnAction" prefHeight="33.0" prefWidth="119.0" style="-fx-background-color: #1e90ff;" text="Genarate PDF" textFill="WHITE" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="18.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
