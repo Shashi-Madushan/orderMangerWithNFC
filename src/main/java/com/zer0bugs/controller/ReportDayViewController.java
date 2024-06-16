@@ -148,4 +148,6 @@ public class ReportDayViewController {
         }
     }
 
+    public void genaratePdfBtnOnAction(ActionEvent event) {
+    }
 }

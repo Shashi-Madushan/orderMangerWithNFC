@@ -8,6 +8,7 @@ import com.zer0bugs.repo.MonthViewRepo;
 import com.zer0bugs.util.GlobalVariables;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.*;
@@ -135,6 +136,12 @@ public class ReportMonthViewController {
 
     public void setYearMonth(YearMonth yearMonth) {
         this.yearMonth = yearMonth;
+    }
+
+
+    @FXML
+    void genaratePdfBtnOnAction(ActionEvent event) {
+
     }
 
 

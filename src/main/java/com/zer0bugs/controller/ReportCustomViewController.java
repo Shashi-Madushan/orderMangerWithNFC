@@ -120,4 +120,10 @@ public class ReportCustomViewController {
         dashboardController.loadDayView(selectedItem.getData());
     }
 
+
+    @FXML
+    void genaratePdfBtnOnAction(ActionEvent event) {
+
+    }
+
 }

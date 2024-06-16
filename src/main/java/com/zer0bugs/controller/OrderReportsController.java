@@ -149,6 +149,11 @@ public class OrderReportsController {
     }
 
 
+    @FXML
+    void genaratePdfBtnOnAction(ActionEvent event) {
+
+    }
+
 
 
 }

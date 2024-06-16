@@ -9,8 +9,8 @@ public class DbConnection {
     private Connection connection;
 
     private DbConnection() throws SQLException {
-        connection =
-        DriverManager.getConnection("jdbc:mysql://OrderManager_couldleft:107f984b8db3ecb169b61026d8fe7e6d818671dc@uqe.h.filess.io:3307/OrderManager_couldleft");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/food_organizer", "root", "Ijse@123");
+        //connection = DriverManager.getConnection("jdbc:mysql://OrderManager_couldleft:107f984b8db3ecb169b61026d8fe7e6d818671dc@uqe.h.filess.io:3307/OrderManager_couldleft");
     }
 
     public static DbConnection getInstance() throws SQLException {
