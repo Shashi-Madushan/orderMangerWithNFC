@@ -9,7 +9,6 @@ import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import com.jfoenix.controls.JFXButton;
 import com.zer0bugs.model.TimePicker;
-import com.zer0bugs.model.tm.MonthViewTm;
 import com.zer0bugs.model.tm.OrderTm;
 import com.zer0bugs.repo.DayViewRepo;
 import com.zer0bugs.util.GlobalVariables;
@@ -173,7 +172,6 @@ public class ReportDayViewController {
             if (!file.getPath().endsWith(".pdf")) {
                 file = new File(file.getPath() + ".pdf");
             }
-            //System.out.println("Saving to: " + file.getAbsolutePath());  // Debugging line
             try {
                 createPDF(file.getAbsolutePath(), tblOrder);
                 new Alert(Alert.AlertType.CONFIRMATION,"PDF saved successfully").show();

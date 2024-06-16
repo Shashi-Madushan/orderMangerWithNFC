@@ -9,11 +9,14 @@ CREATE TABLE employee(
                          deleted     TINYINT(1) DEFAULT 0 NULL
 );
 
-CREATE TABLE file_path(
+CREATE TABLE user(
                           id  INT AUTO_INCREMENT
                               PRIMARY KEY,
-                          file_path VARCHAR(255) NUll
+                          user_name VARCHAR(50) NUll,
+                          password VARCHAR(50) NUll
 );
+
+INSERT INTO user (user_name, password) VALUES ('admin','1234');
 
 CREATE TABLE orders(
                        order_id INT AUTO_INCREMENT PRIMARY KEY ,

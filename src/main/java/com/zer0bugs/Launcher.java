@@ -1,9 +1,7 @@
 package com.zer0bugs;
 
-import com.zer0bugs.controller.DashboardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -12,12 +10,9 @@ public class Launcher extends Application {
         public void start(Stage primaryStage) {
             try {
                 // Load the FXML file
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
-                Parent root = loader.load();
-                DashboardController controller = loader.getController();
-                controller.initialize();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
 
-                Scene scene = new Scene(root, 1000, 600);
+                Scene scene = new Scene(loader.load());
 
                 // Set the stage properties
                 primaryStage.setTitle("Organizer");

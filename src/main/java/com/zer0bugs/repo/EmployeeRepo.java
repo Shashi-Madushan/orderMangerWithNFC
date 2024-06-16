@@ -6,7 +6,6 @@ import com.zer0bugs.model.Employee;
 import com.zer0bugs.model.tm.EmployeeTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
