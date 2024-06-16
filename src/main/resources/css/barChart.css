@@ -1,0 +1,11 @@
+.chart-legend {
+    -fx-text-fill: black; /* Change text color */
+}
+
+.chart-legend-item-symbol.series0 {
+    -fx-background-color: dodgerblue; /* Legend symbol color for the first series */
+}
+
+.chart-legend-item-symbol.series1 {
+    -fx-background-color: orange; /* Legend symbol color for the second series */
+}

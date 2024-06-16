@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="570.0" minWidth="800.0" prefHeight="570.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.ReportMonthViewController">
+   <children>
+      <TableView fx:id="monthViewTabel" layoutX="9.0" layoutY="81.0" minHeight="432.0" minWidth="779.0" onMouseClicked="#tableRowOnClick" prefHeight="432.0" prefWidth="779.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="81.0">
+        <columns>
+          <TableColumn fx:id="colDate" prefWidth="504.0" text="Date" />
+          <TableColumn fx:id="colOrder" minWidth="0.0" prefWidth="146.0" text="Toal Orders" />
+            <TableColumn fx:id="colTakenOrders" prefWidth="128.0" text="Taken Orders" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox alignment="TOP_CENTER" layoutX="276.0" layoutY="26.0" minHeight="38.0" minWidth="225.0" prefHeight="38.0" prefWidth="225.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="299.0" AnchorPane.topAnchor="26.0">
+         <children>
+            <JFXButton fx:id="monthSelectBtm" buttonType="RAISED" onAction="#monthSelectBtmOnClick" prefHeight="38.0" prefWidth="173.0" style="-fx-background-color: White; -fx-border-color: #1e90ff;" text="Select a month">
+               <font>
+                  <Font name="Georgia" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#seachBtnOnClick" prefHeight="38.0" prefWidth="52.0" style="-fx-background-color: #1e90ff;" text="">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons8-search-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox layoutX="528.0" layoutY="513.0" minHeight="30.0" minWidth="258.0" prefHeight="30.0" prefWidth="258.0" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="14.0">
+         <children>
+            <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" />
+            <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" />
+         </children>
+      </HBox>
+
+   </children>
+</AnchorPane>

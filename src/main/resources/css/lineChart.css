@@ -1,0 +1,15 @@
+.chart-legend-item-symbol.series0 {
+    -fx-background-color: dodgerblue; /* Legend symbol color for the first series */
+}
+
+.chart-legend-item-symbol.series1 {
+    -fx-background-color: orange; /* Legend symbol color for the second series */
+}
+
+.chart-series-line.series0 {
+    -fx-stroke: dodgerblue; /* Line color for the first series */
+}
+
+.chart-series-line.series1 {
+    -fx-stroke: orange; /* Line color for the second series */
+}
