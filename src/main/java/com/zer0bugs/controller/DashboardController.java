@@ -323,4 +323,23 @@ public void  loadCustomRangeView(){
         customeBtnImageView.setImage(image);
 
     }
+
+    public void settingBtnOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/settings.fxml"));
+            AnchorPane settingsAncherPAne = loader.load();
+            settingsAncherPAne.setPrefSize(600, 400);
+            settingsAncherPAne.setMinSize(600,400);
+
+            // Set AnchorPane constraints to make it resizable
+            AnchorPane.setTopAnchor(settingsAncherPAne, 3.0);
+            AnchorPane.setBottomAnchor(settingsAncherPAne, 3.0);
+            AnchorPane.setLeftAnchor(settingsAncherPAne, 3.0);
+            AnchorPane.setRightAnchor(settingsAncherPAne, 3.0);
+
+            innerPane.getChildren().setAll(settingsAncherPAne);
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception accordingly
+        }
+    }
 }
