@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -246,7 +245,7 @@ public void  loadCustomRangeView(){
     void monthViewOnClick(ActionEvent event) {
         defaultStyle();
         changeStyle(monthBtn,monthlyBtnImageView);
-       loadMonthView();
+        loadMonthView();
 
     }
     public void loadMonthView(){
@@ -353,6 +352,7 @@ public void  loadCustomRangeView(){
         todayBtn.setStyle(style);
         customRangeBtn.setStyle(style);
         customOrdersBtn.setStyle(style);
+
         //reportBtn.setStyle(style);
 
         Image image ;
@@ -392,6 +392,7 @@ public void  loadCustomRangeView(){
     }
     @FXML
     void logOutBtnOnAction(ActionEvent event) {
+        defaultStyle();
         Stage stage = (Stage) innerPane.getScene().getWindow();
         stage.close();
 

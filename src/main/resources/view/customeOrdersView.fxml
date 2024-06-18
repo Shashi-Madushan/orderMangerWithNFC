@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="572.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.CustomeOrdersController">
-
+   <children>
+      <TableView fx:id="orderItemTabel" layoutX="390.0" layoutY="45.0" maxWidth="500.0" prefHeight="433.0" prefWidth="409.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="45.0">
+        <columns>
+          <TableColumn fx:id="descriptionCol" minWidth="90.0" prefWidth="75.0" text="Description" />
+          <TableColumn fx:id="amountCol" minWidth="60.0" prefWidth="60.0" text="Amount" />
+            <TableColumn fx:id="btnCol" maxWidth="90.0" prefWidth="85.0" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="395.0" layoutY="10.0" prefHeight="29.0" prefWidth="403.0" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Order Items" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label layoutX="42.0" layoutY="54.0" text="Order Name">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="orderNameTextField" layoutX="41.0" layoutY="76.0" prefHeight="25.0" prefWidth="304.0" />
+      <TextField fx:id="descriptionTextField" layoutX="42.0" layoutY="183.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="qtyTextField" layoutX="269.0" layoutY="183.0" prefHeight="25.0" prefWidth="74.0" />
+      <Label layoutX="42.0" layoutY="160.0" text="Description">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="162.0" text="Qty">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="269.0" layoutY="233.0" onAction="#addItemBtnOnAction" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: DODGERBLUE;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Georgia Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="placeOrderBtn" buttonType="RAISED" layoutX="681.0" layoutY="521.0" onAction="#placeOrderBtnOnAction" prefHeight="47.0" prefWidth="113.0" style="-fx-background-color: DODGERBLUE;" text="Place Order" textFill="WHITE" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="17.0">
+         <font>
+            <Font name="Georgia Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="147.0" layoutY="127.0" prefHeight="16.0" prefWidth="73.0" text="Add Items">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

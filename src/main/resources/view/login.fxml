@@ -42,7 +42,7 @@
                         <Image url="@../assets/HSM-HOLDINGS-LOGO.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="59.0" layoutY="373.0" opacity="0.6" text="Powerd By" />
+                  <Label layoutX="59.0" layoutY="373.0" opacity="0.6" text="Developed By" />
                   <Label layoutX="59.0" layoutY="390.0" opacity="0.6" text="HSM DEVELOPERS" />
                </children>
                <effect>

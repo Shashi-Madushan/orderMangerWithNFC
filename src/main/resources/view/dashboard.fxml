@@ -129,16 +129,16 @@
             <Line endX="45.0" opacity="0.32" startX="-100.0" />
          </children>
       </VBox>
-      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="21.0" layoutY="555.0" opacity="0.6" AnchorPane.bottomAnchor="12.0">
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="21.0" layoutY="547.0" opacity="0.6" AnchorPane.bottomAnchor="20.0">
          <image>
             <Image url="@../assets/HSM-HOLDINGS-LOGO.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="61.0" layoutY="560.0" opacity="0.6" text="Powerd By" AnchorPane.bottomAnchor="25.0">
+      <Label layoutX="61.0" layoutY="552.0" opacity="0.6" text="Developed By" AnchorPane.bottomAnchor="33.0">
          <font>
             <Font size="10.0" />
          </font></Label>
-      <Label layoutX="60.0" layoutY="574.0" opacity="0.6" text="HSM DEVELOPERS" AnchorPane.bottomAnchor="10.0">
+      <Label layoutX="60.0" layoutY="566.0" opacity="0.6" text="HSM DEVELOPERS" AnchorPane.bottomAnchor="18.0">
          <font>
             <Font size="11.0" />
          </font></Label>
