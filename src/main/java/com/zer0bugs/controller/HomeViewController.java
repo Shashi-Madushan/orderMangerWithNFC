@@ -42,14 +42,11 @@ public class HomeViewController {
     @FXML
     private Label dateLabel;
 
-    @FXML
-    private TextField descriptionTextField;
 
     @FXML
     private LineChart<String, Number> lineChart;
 
-    @FXML
-    private TextField orderAmountTextField;
+
 
     @FXML
     private Label takenOrderCountLabel;
@@ -207,51 +204,10 @@ public class HomeViewController {
         }
     }
 
-    @FXML
-    void customOrderBtnOnClick(ActionEvent event) {
-        if (isValid() && !descriptionTextField.getText().isEmpty()){
-            String description = descriptionTextField.getText();
-            int orderCount = Integer.parseInt(orderAmountTextField.getText());
-            try {
-                if (CustomOrderRepo.save(description,orderCount)){
-                    new Alert(Alert.AlertType.CONFIRMATION,"Order added successfully").show();
-                } else {
-                    new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
-                }
-            } catch (Exception e) {
-            }
-            setCounts();
-            loadData();
-            setDataOnBarChart();
-            setDataOnLineChart();
-            clear();
-            descriptionTextField.requestFocus();
-        }
-    }
 
-    private void clear() {
-        descriptionTextField.setText("");
-        orderAmountTextField.setText("");
-    }
 
-    @FXML
-    void descriptionTextFieldOnAction(ActionEvent event) {
-        orderAmountTextField.requestFocus();
-    }
 
-    @FXML
-    void orderAmountTextFieldOnAction(ActionEvent event) {
-        customOrderBtnOnClick(event);
-    }
 
-    private boolean isValid(){
-        if (!Regex.setTextColor(com.zer0bugs.util.TextField.COUNT,orderAmountTextField)) return false;
-        return true;
-    }
 
-    @FXML
-    void orderAmountTxtKeyRelese(KeyEvent event) {
-        Regex.setTextColor(com.zer0bugs.util.TextField.COUNT,orderAmountTextField);
-    }
 
 }

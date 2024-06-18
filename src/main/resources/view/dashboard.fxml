@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.DashboardController">
@@ -88,17 +91,44 @@
             </JFXButton>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="8.0" layoutY="507.0" prefHeight="79.0" prefWidth="159.0" AnchorPane.bottomAnchor="14.0">
+      <VBox alignment="CENTER" layoutX="9.0" layoutY="463.0" prefHeight="68.0" prefWidth="159.0" spacing="10.0" AnchorPane.bottomAnchor="69.0">
          <children>
-            <JFXButton onAction="#settingBtnOnAction" text="">
-               <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/settings.png" />
-                     </image></ImageView>
-               </graphic>
-            </JFXButton>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="159.0" spacing="15.0">
+               <children>
+                  <JFXButton prefHeight="45.0" prefWidth="45.0" text="">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="29.0" onDragDetected="#logOutBtnOnAction" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/logOutLogo.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#settingBtnOnAction" text="">
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="38.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Line endX="45.0" startX="-100.0" />
          </children>
       </VBox>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="21.0" layoutY="555.0" opacity="0.6" AnchorPane.bottomAnchor="12.0">
+         <image>
+            <Image url="@../assets/HSM-HOLDINGS-LOGO.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="61.0" layoutY="560.0" opacity="0.6" text="Powerd By" AnchorPane.bottomAnchor="25.0">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label layoutX="60.0" layoutY="574.0" opacity="0.6" text="HSM DEVELOPERS" AnchorPane.bottomAnchor="10.0">
+         <font>
+            <Font size="11.0" />
+         </font></Label>
     </children>
 </AnchorPane>

@@ -193,6 +193,12 @@ public class EmployeeController {
                         final int colIndex = i;
                         column.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[colIndex]));
                         column.setCellFactory(TextFieldTableCell.forTableColumn());
+                        column.setPrefWidth(150);
+                        if (i==0){
+                            column.setMaxWidth(150);
+                            column.setMinWidth(150);
+                        }
+
                         bulckEmployeeShowTabeel.getColumns().add(column);
                     }
 
@@ -204,6 +210,7 @@ public class EmployeeController {
             }
         }
     }
+
 
     @FXML
     void bulckSvaeBtnOnAction(ActionEvent event) {
