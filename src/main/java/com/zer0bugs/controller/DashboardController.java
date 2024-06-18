@@ -5,12 +5,16 @@ import com.zer0bugs.util.GlobalVariables;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.sql.Date;
 
 import java.io.IOException;
@@ -19,6 +23,12 @@ import java.time.LocalDate;
 
 public class DashboardController {
 
+    @FXML
+    private ImageView custonOrdersImageView;
+
+    @FXML
+    private JFXButton customOrdersBtn;
+    
     @FXML
     private JFXButton customRangeBtn;
 
@@ -60,6 +70,9 @@ public class DashboardController {
 
     @FXML
     private ImageView todayBtnImageView;
+
+    @FXML
+    private AnchorPane rootAncherPane;
 
 
     private Date todaysDate;
@@ -129,6 +142,33 @@ public class DashboardController {
             innerPane.getChildren().setAll(EmployeeAnchorPane);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void customOrdersBtnOnAction(ActionEvent event) {
+        defaultStyle();
+        changeStyle(customOrdersBtn,custonOrdersImageView);
+        loadCustomOrdersView();
+        reSet();
+    }
+
+    private void loadCustomOrdersView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customeOrdersView.fxml"));
+            AnchorPane customOrdersAncherPAne = loader.load();
+            customOrdersAncherPAne.setPrefSize(600, 400);
+            customOrdersAncherPAne.setMinSize(600,400);
+
+
+            AnchorPane.setTopAnchor(customOrdersAncherPAne, 3.0);
+            AnchorPane.setBottomAnchor(customOrdersAncherPAne, 3.0);
+            AnchorPane.setLeftAnchor(customOrdersAncherPAne, 3.0);
+            AnchorPane.setRightAnchor(customOrdersAncherPAne, 3.0);
+
+            innerPane.getChildren().setAll(customOrdersAncherPAne);
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception accordingly
         }
     }
 
@@ -283,6 +323,7 @@ public void  loadCustomRangeView(){
     }
 
 
+
     private void changeStyle(Button button, ImageView view){
         button.setStyle("-fx-text-fill: white;-fx-background-color: DODGERBLUE;");
         Image image = null;
@@ -297,6 +338,9 @@ public void  loadCustomRangeView(){
             image = new Image("/assets/dailyViewWhite.png");
         } else if (view.equals(customeBtnImageView)) {
             image = new Image("/assets/customeWhite.png");
+        }else if(view.equals(custonOrdersImageView)){
+            image = new Image("/assets/ordersWhite.png");
+
         }
         view.setImage(image);
     }
@@ -308,6 +352,7 @@ public void  loadCustomRangeView(){
         monthBtn.setStyle(style);
         todayBtn.setStyle(style);
         customRangeBtn.setStyle(style);
+        customOrdersBtn.setStyle(style);
         //reportBtn.setStyle(style);
 
         Image image ;
@@ -322,6 +367,8 @@ public void  loadCustomRangeView(){
         todayBtnImageView.setImage(image);
         image = new Image("/assets/customeGray.png");
         customeBtnImageView.setImage(image);
+        image = new Image("/assets/ordersGray.png");
+        custonOrdersImageView.setImage(image);
 
     }
 
@@ -343,7 +390,19 @@ public void  loadCustomRangeView(){
             e.printStackTrace(); // Handle the exception accordingly
         }
     }
-
+    @FXML
     public void logOutBtnOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) rootAncherPane.getScene().getWindow();
+        stage.close();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+            Parent root = loader.load();
+            Stage loginStage = new Stage();
+            loginStage.setScene(new Scene(root));
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception accordingly
+        }
     }
 }

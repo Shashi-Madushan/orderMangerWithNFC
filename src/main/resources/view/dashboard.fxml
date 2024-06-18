@@ -10,12 +10,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.DashboardController">
+<AnchorPane fx:id="rootAncherPane" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.DashboardController">
     <children>
         <AnchorPane fx:id="innerPane" layoutX="175.0" layoutY="14.0" minHeight="572.0" minWidth="811.0" prefHeight="572.0" prefWidth="811.0" style="-fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2; -fx-border-color: #1e90ff;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
 
         </AnchorPane>
-        <VBox fx:id="sidePane" layoutX="8.0" layoutY="153.0" maxWidth="175.0" minWidth="139.0" prefHeight="272.0" prefWidth="159.0" spacing="2.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="153.0">
+        <VBox fx:id="sidePane" layoutX="8.0" layoutY="129.0" maxWidth="175.0" minWidth="139.0" prefHeight="296.0" prefWidth="159.0" spacing="2.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="129.0">
          <children>
             <JFXButton fx:id="homeBtn" graphicTextGap="0.0" minHeight="50.0" onAction="#homeBtnOnClick" prefHeight="50.0" prefWidth="190.0" style="-fx-background-color: white;" text="    Home       " textFill="#756868">
                <font>
@@ -25,6 +25,18 @@
                   <ImageView fx:id="homeImageView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/homegray.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="customOrdersBtn" graphicTextGap="12.0" onAction="#customOrdersBtnOnAction" prefHeight="55.0" prefWidth="159.0" text="Orders        " VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Georgia" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="custonOrdersImageView" fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/ordersGray.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -84,7 +96,7 @@
                <graphic>
                   <ImageView fx:id="customeBtnImageView" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/customeDayRange.png" />
+                        <Image url="@../assets/customeGray.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -114,7 +126,7 @@
                   </JFXButton>
                </children>
             </HBox>
-            <Line endX="45.0" startX="-100.0" />
+            <Line endX="45.0" opacity="0.32" startX="-100.0" />
          </children>
       </VBox>
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="21.0" layoutY="555.0" opacity="0.6" AnchorPane.bottomAnchor="12.0">

@@ -10,13 +10,13 @@ public class Launcher extends Application {
         public void start(Stage primaryStage) {
             try {
                 // Load the FXML file
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
 
                 Scene scene = new Scene(loader.load());
 
                 // Set the stage properties
                 primaryStage.setScene(scene);
-                primaryStage.setResizable(false);
+                //primaryStage.setResizable(false);
 
                 primaryStage.show();
             } catch (Exception e) {

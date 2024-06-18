@@ -80,7 +80,7 @@
             </HBox>
             <HBox prefHeight="180.0" prefWidth="790.0" spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
-                  <TableView maxHeight="201.0" prefHeight="141.0" prefWidth="392.0" stylesheets="@../css/table.css" HBox.hgrow="ALWAYS">
+                  <TableView maxHeight="201.0" prefHeight="141.0" prefWidth="0.0" stylesheets="@../css/table.css" HBox.hgrow="ALWAYS">
                     <columns>
                       <TableColumn prefWidth="199.0" text="Order Name " />
                     </columns>
