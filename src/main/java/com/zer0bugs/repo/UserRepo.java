@@ -2,6 +2,9 @@ package com.zer0bugs.repo;
 
 import com.zer0bugs.db.DbConnection;
 import com.zer0bugs.model.User;
+import com.zer0bugs.model.tm.UserTm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
@@ -38,6 +41,38 @@ public class UserRepo {
         stmt.setString(1, user1.getUserName());
         stmt.setString(2, user1.getPassword());
         stmt.setInt(3, user.getId());
+        return stmt.executeUpdate() > 0;
+    }
+
+    public static ObservableList<User> getAllData() throws SQLException {
+        ObservableList<User> list = FXCollections.observableArrayList();
+
+        String sql = "SELECT * FROM user";
+
+        ResultSet set = DbConnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
+        while(set.next()) {
+            if (set.getInt("id") == 1) {
+                continue;
+            }
+            list.add(new User(set.getInt("id"),set.getString("user_name"), set.getString("password")));
+        }
+        return list;
+    }
+
+    public static boolean delete(UserTm userTm) throws SQLException {
+        String sql = "DELETE FROM user WHERE user_name = ?";
+
+        PreparedStatement stmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        stmt.setString(1, userTm.getUsername());
+        return stmt.executeUpdate() > 0;
+    }
+
+    public static boolean save(User user) throws SQLException {
+        String sql = "INSERT INTO user (user_name, password) VALUES (?, ?)";
+
+        PreparedStatement stmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        stmt.setString(1, user.getUserName());
+        stmt.setString(2, user.getPassword());
         return stmt.executeUpdate() > 0;
     }
 }

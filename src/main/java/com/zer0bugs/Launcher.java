@@ -10,7 +10,7 @@ public class Launcher extends Application {
         public void start(Stage primaryStage) {
             try {
                 // Load the FXML file
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
 
                 Scene scene = new Scene(loader.load());
 
