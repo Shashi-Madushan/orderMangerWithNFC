@@ -38,7 +38,7 @@
             </AnchorPane>
             <AnchorPane fx:id="addUserAnchorpane" prefHeight="562.0" prefWidth="495.0" style="-fx-border-color: DODGERBLUE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
                <children>
-                  <TableView fx:id="tblUserDetails" layoutX="6.0" layoutY="271.0" prefHeight="283.0" prefWidth="483.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="271.0">
+                  <TableView fx:id="tblUserDetails" layoutX="12.0" layoutY="277.0" prefHeight="250.0" prefWidth="468.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="275.0">
                     <columns>
                       <TableColumn fx:id="colUserName" prefWidth="164.0" text="Name" />
                       <TableColumn fx:id="colPassword" prefWidth="186.0" text="Password" />

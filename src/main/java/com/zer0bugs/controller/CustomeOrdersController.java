@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 
 public class CustomeOrdersController {
 
+
+    @FXML
+    private TextField numberOfPeapolTextField;
+
     @FXML
     private JFXButton addItemBtn;
 

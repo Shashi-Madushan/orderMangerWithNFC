@@ -72,6 +72,7 @@ public class SettingsViewController {
         visible(false);
         setCellValueFactory();
         isShowAddUser();
+        tblUserDetails.setStyle("-fx-border-width: 1px;");
     }
 
     private void isShowAddUser() {
