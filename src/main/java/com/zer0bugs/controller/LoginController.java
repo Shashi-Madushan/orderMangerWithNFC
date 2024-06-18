@@ -66,7 +66,6 @@ public class LoginController {
 
         Scene scene = new Scene(root, 1000, 600);
         Stage stage = new Stage();
-        stage.setTitle("Organizer");
         stage.setScene(scene);
         stage.setMinWidth(1050);
         stage.setMinHeight(650);
