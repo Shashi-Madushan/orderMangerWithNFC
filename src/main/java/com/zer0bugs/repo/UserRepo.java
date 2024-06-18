@@ -9,14 +9,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserRepo {
-    public static boolean checkUser(User user) throws SQLException {
-        String sql = "SELECT password FROM user WHERE user_name = ?";
+    public static User user;
+
+    public static boolean checkUser(User user1) throws SQLException {
+        String sql = "SELECT * FROM user WHERE user_name = ?";
 
         PreparedStatement stmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
-        stmt.setString(1, user.getUserName());
+        stmt.setString(1, user1.getUserName());
         ResultSet rs = stmt.executeQuery();
         if(rs.next()) {
-            if(user.getPassword().equals(rs.getString("password"))) {
+            if(user1.getPassword().equals(rs.getString("password"))) {
+                user = new User(rs.getInt("id"),rs.getString("user_name"), rs.getString("password"));
                 return true;
             } else {
                 new Alert(Alert.AlertType.ERROR,"Passwords do not match").show();
@@ -26,5 +29,15 @@ public class UserRepo {
             new Alert(Alert.AlertType.ERROR,"User not found").show();
             return false;
         }
+    }
+
+    public static boolean changeUserDetails(User user1) throws SQLException {
+        String sql = "UPDATE user SET user_name = ? , password = ? WHERE id = ?";
+
+        PreparedStatement stmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        stmt.setString(1, user1.getUserName());
+        stmt.setString(2, user1.getPassword());
+        stmt.setInt(3, user.getId());
+        return stmt.executeUpdate() > 0;
     }
 }

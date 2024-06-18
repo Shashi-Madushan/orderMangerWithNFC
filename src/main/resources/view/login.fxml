@@ -5,38 +5,54 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="loginAnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.LoginController">
+<AnchorPane fx:id="loginAnchorPane" prefHeight="427.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zer0bugs.controller.LoginController">
    <children>
-      <HBox alignment="CENTER" layoutY="143.0" prefHeight="335.0" prefWidth="1000.0" AnchorPane.bottomAnchor="122.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="399.0" prefWidth="493.0">
          <children>
-            <AnchorPane prefHeight="335.0" prefWidth="372.0">
+            <AnchorPane prefHeight="399.0" prefWidth="468.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="335.0" stroke="DODGERBLUE" strokeType="INSIDE" strokeWidth="3.0" width="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="399.0" stroke="DODGERBLUE" strokeType="INSIDE" strokeWidth="3.0" width="468.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <effect>
                         <DropShadow />
                      </effect>
                   </Rectangle>
-                  <TextField fx:id="txtUserName" layoutX="62.0" layoutY="118.0" onAction="#txtUserNameOnAction" prefHeight="36.0" prefWidth="256.0" promptText="User Name" style="-fx-background-radius: 6;" AnchorPane.topAnchor="118.0">
+                  <TextField fx:id="txtUserName" layoutX="107.0" layoutY="105.0" onAction="#txtUserNameOnAction" prefHeight="36.0" prefWidth="256.0" promptText="User Name" style="-fx-background-radius: 6;" AnchorPane.topAnchor="105.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="149.0" layoutY="30.0" text="Login" textAlignment="CENTER" textFill="DODGERBLUE" AnchorPane.topAnchor="30.0">
+                  <Label layoutX="188.0" layoutY="28.0" text="Login" textAlignment="CENTER" textFill="DODGERBLUE" AnchorPane.topAnchor="28.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtPassword" layoutX="62.0" layoutY="194.0" onAction="#txtPasswordOnAction" prefHeight="36.0" prefWidth="256.0" promptText="Password" style="-fx-background-radius: 6;" AnchorPane.topAnchor="194.0" />
-                  <JFXButton layoutX="129.0" layoutY="266.0" onAction="#loginOnAction" prefHeight="36.0" prefWidth="123.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 6;" text="login" textFill="WHITE" AnchorPane.topAnchor="266.0">
+                  <PasswordField fx:id="txtPassword" layoutX="106.0" layoutY="164.0" onAction="#txtPasswordOnAction" prefHeight="36.0" prefWidth="256.0" promptText="Password" style="-fx-background-radius: 6;" AnchorPane.topAnchor="164.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></PasswordField>
+                  <JFXButton layoutX="174.0" layoutY="236.0" onAction="#loginOnAction" prefHeight="36.0" prefWidth="123.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 6;" text="login" textFill="WHITE" AnchorPane.topAnchor="236.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </JFXButton>
+                  <Text fill="#000000ba" layoutX="300.0" layoutY="381.0" opacity="0.87" strokeType="OUTSIDE" strokeWidth="0.0" text="Powerd By HSM Developers">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="362.0" layoutY="317.0">
+                     <image>
+                        <Image url="@../assets/HSM-HOLDINGS-LOGO.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

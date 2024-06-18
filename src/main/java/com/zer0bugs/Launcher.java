@@ -15,12 +15,9 @@ public class Launcher extends Application {
                 Scene scene = new Scene(loader.load());
 
                 // Set the stage properties
-                primaryStage.setTitle("Organizer");
                 primaryStage.setScene(scene);
-                primaryStage.setMinWidth(1050);
-                primaryStage.setMinHeight(650);
+                primaryStage.setResizable(false);
 
-                // Show the stage
                 primaryStage.show();
             } catch (Exception e) {
                 e.printStackTrace();

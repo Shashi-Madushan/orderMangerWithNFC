@@ -18,16 +18,16 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="newUnameTExtField" layoutX="25.0" layoutY="149.0" prefHeight="25.0" prefWidth="227.0" promptText="New User Name" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="149.0" />
-                  <TextField fx:id="currentPwTextFiled" layoutX="26.0" layoutY="112.0" prefHeight="25.0" prefWidth="227.0" promptText="Current Password" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="112.0" />
-                  <TextField fx:id="newPwTextField" layoutX="24.0" layoutY="189.0" prefHeight="25.0" prefWidth="227.0" promptText="New Password" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="189.0" />
-                  <TextField fx:id="newPwrReenterTextField" layoutX="24.0" layoutY="229.0" prefHeight="25.0" prefWidth="227.0" promptText="Reenter New passwoard " AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="229.0" />
-                  <JFXButton buttonType="RAISED" layoutX="61.0" layoutY="303.0" onAction="#changeBtnOnAction" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: DODGERBLUE; -fx-border-color: blue; -fx-border-radius: 8; -fx-background-radius: 8;" text="Change" textFill="WHITE" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="62.0">
+                  <TextField fx:id="newUnameTExtField" layoutX="25.0" layoutY="149.0" onAction="#newUnameTExtFieldOnAction" prefHeight="25.0" prefWidth="227.0" promptText="New User Name" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="149.0" />
+                  <TextField fx:id="currentPwTextFiled" layoutX="26.0" layoutY="112.0" onAction="#currentPwTextFiledOnAction" prefHeight="25.0" prefWidth="227.0" promptText="Current Password" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="112.0" />
+                  <TextField fx:id="newPwTextField" layoutX="24.0" layoutY="189.0" onAction="#newPwTextFieldOnAction" prefHeight="25.0" prefWidth="227.0" promptText="New Password" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="189.0" />
+                  <TextField fx:id="newPwrReenterTextField" layoutX="24.0" layoutY="229.0" onAction="#newPwrReenterTextFieldOnAction" prefHeight="25.0" prefWidth="227.0" promptText="Conform Passwoard " AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="229.0" />
+                  <JFXButton fx:id="changeBtn" buttonType="RAISED" layoutX="61.0" layoutY="303.0" onAction="#changeBtnOnAction" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: DODGERBLUE; -fx-border-color: blue; -fx-border-radius: 8; -fx-background-radius: 8;" text="Change" textFill="WHITE" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="62.0">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="currentUnameLbel" layoutX="27.0" layoutY="71.0" opacity="0.25" prefHeight="27.0" prefWidth="219.0" style="-fx-border-color: black;" text="Uname" />
+                  <Label fx:id="currentUnameLbel" layoutX="27.0" layoutY="71.0" prefHeight="27.0" prefWidth="219.0" style="-fx-border-color: #C0C6C7;" text="Uname" />
                </children>
             </AnchorPane>
          </children>
