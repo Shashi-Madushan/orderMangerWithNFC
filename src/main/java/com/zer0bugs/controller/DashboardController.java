@@ -391,8 +391,8 @@ public void  loadCustomRangeView(){
         }
     }
     @FXML
-    public void logOutBtnOnAction(MouseEvent mouseEvent) {
-        Stage stage = (Stage) rootAncherPane.getScene().getWindow();
+    void logOutBtnOnAction(ActionEvent event) {
+        Stage stage = (Stage) innerPane.getScene().getWindow();
         stage.close();
 
         try {

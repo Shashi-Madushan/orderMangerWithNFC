@@ -36,22 +36,22 @@
                   <Insets bottom="20.0" top="20.0" />
                </HBox.margin>
             </AnchorPane>
-            <AnchorPane prefHeight="562.0" prefWidth="495.0" style="-fx-border-color: DODGERBLUE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+            <AnchorPane fx:id="addUserAnchorpane" prefHeight="562.0" prefWidth="495.0" style="-fx-border-color: DODGERBLUE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
                <children>
-                  <TableView layoutX="6.0" layoutY="271.0" prefHeight="283.0" prefWidth="483.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="271.0">
+                  <TableView fx:id="tblUserDetails" layoutX="6.0" layoutY="271.0" prefHeight="283.0" prefWidth="483.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="271.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="User" />
-                      <TableColumn prefWidth="75.0" text="Pw" />
-                        <TableColumn prefWidth="75.0" text=" " />
+                      <TableColumn fx:id="colUserName" prefWidth="171.0" text="User Name" />
+                      <TableColumn fx:id="colPassword" prefWidth="215.0" text="Password" />
+                        <TableColumn fx:id="colDeleteBtn" prefWidth="65.0" text=" " />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TextField layoutX="49.0" layoutY="107.0" promptText="New User Name" />
+                  <TextField fx:id="txtUserName" layoutX="49.0" layoutY="107.0" onAction="#txtUserNameOnAction" promptText="New User Name" />
                   <Label layoutX="198.0" layoutY="29.0" text="ADD USERS" />
-                  <TextField layoutX="49.0" layoutY="147.0" promptText="User Password" />
-                  <JFXButton buttonType="RAISED" layoutX="219.0" layoutY="106.0" prefHeight="64.0" prefWidth="63.0" style="-fx-background-color: DODGERBLUE;" text="Add" textFill="WHITE">
+                  <TextField fx:id="txtPassword" layoutX="49.0" layoutY="147.0" onAction="#txtPasswordOnAction" promptText="User Password" />
+                  <JFXButton buttonType="RAISED" layoutX="237.0" layoutY="107.0" onAction="#addBtnOnAction" prefHeight="64.0" prefWidth="63.0" style="-fx-background-color: DODGERBLUE;" text="Add" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

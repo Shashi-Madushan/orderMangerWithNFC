@@ -107,9 +107,9 @@
          <children>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="159.0" spacing="15.0">
                <children>
-                  <JFXButton prefHeight="45.0" prefWidth="45.0" text="">
+                  <JFXButton onAction="#logOutBtnOnAction" prefHeight="45.0" prefWidth="45.0" text="">
                      <graphic>
-                        <ImageView fitHeight="42.0" fitWidth="29.0" onDragDetected="#logOutBtnOnAction" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="29.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/logOutLogo.png" />
                            </image></ImageView>

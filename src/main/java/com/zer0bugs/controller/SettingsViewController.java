@@ -4,10 +4,10 @@ import com.zer0bugs.model.User;
 import com.zer0bugs.repo.UserRepo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import com.jfoenix.controls.JFXButton;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 public class SettingsViewController {
 
@@ -29,9 +29,44 @@ public class SettingsViewController {
     @FXML
     private JFXButton changeBtn;
 
+    @FXML
+    private AnchorPane addUserAnchorpane;
+
+    @FXML
+    private TableColumn<?, ?> colDeleteBtn;
+
+    @FXML
+    private TableColumn<?, ?> colPassword;
+
+    @FXML
+    private TableColumn<?, ?> colUserName;
+
+    @FXML
+    private TableView<?> tblUserDetails;
+
+    @FXML
+    private TextField txtPassword;
+
+    @FXML
+    private TextField txtUserName;
+
     public void initialize() {
         currentUnameLbel.setText(" " + UserRepo.user.getUserName());
         visible(false);
+        setCellValueFactory();
+        isShowAddUser();
+    }
+
+    private void isShowAddUser() {
+        if (UserRepo.user.getId() == 1){
+
+        }
+    }
+
+    private void setCellValueFactory() {
+        colUserName.setCellValueFactory(new PropertyValueFactory<>("username"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+        colDeleteBtn.setCellValueFactory(new PropertyValueFactory<>("deleteButton"));
     }
 
     private void visible(boolean isVisible) {
@@ -108,4 +143,20 @@ public class SettingsViewController {
     void newUnameTExtFieldOnAction(ActionEvent event) {
         newPwTextField.requestFocus();
     }
+
+    @FXML
+    void txtPasswordOnAction(ActionEvent event) {
+        addBtnOnAction(event);
+    }
+
+    @FXML
+    void txtUserNameOnAction(ActionEvent event) {
+        txtPassword.requestFocus();
+    }
+
+    @FXML
+    void addBtnOnAction(ActionEvent event) {
+
+    }
+
 }
