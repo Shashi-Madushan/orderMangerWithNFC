@@ -73,9 +73,10 @@ public class DashboardController {
     @FXML
     private AnchorPane rootAncherPane;
 
+    @FXML
+    private ImageView settingImageView;
 
     private Date todaysDate;
-
 
     public void initialize(){
         todaysDate = Date.valueOf(LocalDate.now());
@@ -301,7 +302,6 @@ public void  loadCustomRangeView(){
 
     }
 
-
     private void loadReportsView(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/orderReports.fxml"));
@@ -369,10 +369,15 @@ public void  loadCustomRangeView(){
         customeBtnImageView.setImage(image);
         image = new Image("/assets/ordersGray.png");
         custonOrdersImageView.setImage(image);
-
+        image = new Image("assets/settings.png");
+        settingImageView.setImage(image);
+        settingImageView.setOpacity(0.63);
     }
 
     public void settingBtnOnAction(ActionEvent event) {
+        defaultStyle();
+        settingImageView.setImage(new Image("assets/icons8-setting-50.png"));
+        settingImageView.setOpacity(1);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/settings.fxml"));
             AnchorPane settingsAncherPAne = loader.load();
