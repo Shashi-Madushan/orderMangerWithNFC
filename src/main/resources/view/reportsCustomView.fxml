@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="570.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hsmdevelopers.controller.ReportCustomViewController">
@@ -29,7 +30,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="monthViewTabel" layoutX="19.0" layoutY="91.0" minHeight="384.0" minWidth="779.0" onMouseClicked="#tableRowOnClick" prefHeight="384.0" prefWidth="779.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="91.0">
+      <TableView fx:id="monthViewTabel" layoutX="8.0" layoutY="82.0" minHeight="384.0" minWidth="779.0" onMouseClicked="#tableRowOnClick" prefHeight="393.0" prefWidth="790.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="82.0">
          <columns>
             <TableColumn fx:id="colDate" prefWidth="504.0" text="Date" />
             <TableColumn fx:id="colOrder" minWidth="0.0" prefWidth="146.0" text="Toal Orders" />
@@ -39,16 +40,42 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="538.0" layoutY="492.0" minHeight="30.0" minWidth="258.0" prefHeight="30.0" prefWidth="258.0" AnchorPane.bottomAnchor="48.0" AnchorPane.rightAnchor="15.0">
-         <children>
-            <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <JFXButton layoutX="674.0" layoutY="528.0" onAction="#genaratePdfBtnOnAction" prefHeight="33.0" prefWidth="119.0" style="-fx-background-color: #1e90ff;" text="Genarate PDF" textFill="WHITE" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="18.0">
+      <JFXButton layoutX="671.0" layoutY="518.0" onAction="#genaratePdfBtnOnAction" prefHeight="48.0" prefWidth="119.0" style="-fx-background-color: #1e90ff;" text="Genarate PDF" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="21.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <VBox alignment="CENTER" layoutX="20.0" layoutY="484.0" prefHeight="72.0" prefWidth="243.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
+         <children>
+            <HBox alignment="CENTER" minHeight="30.0" minWidth="222.0" prefHeight="30.0" prefWidth="222.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="140.0" text="Taken Orders" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenOrderCountLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="134.0" text="tto" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="222.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="140.0" text="Total Orders" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalOrderCountLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="138.0" text="to" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

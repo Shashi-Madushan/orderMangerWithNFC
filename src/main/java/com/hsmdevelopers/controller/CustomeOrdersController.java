@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 
 public class CustomeOrdersController {
 
+    @FXML
+    private TextField orderTimeTextField;
 
     @FXML
     private TextField numberOfPeapolTextField;
