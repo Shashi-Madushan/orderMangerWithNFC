@@ -3,6 +3,7 @@ package com.hsmdevelopers.controller;
 import com.hsmdevelopers.db.DbConnection;
 import com.hsmdevelopers.model.CustomOrder;
 import com.hsmdevelopers.model.CustomOrderItem;
+import com.hsmdevelopers.model.TimePicker;
 import com.hsmdevelopers.model.tm.CustomOrderItemTm;
 import com.hsmdevelopers.model.tm.EmployeeTm;
 import com.hsmdevelopers.repo.CustomOrderItemRepo;
@@ -172,6 +173,11 @@ public class CustomeOrdersController {
         } finally {
             connection.setAutoCommit(true);
         }
+    }
+
+    @FXML
+    void timePickerOnAction(ActionEvent event) {
+       LocalTime time = TimePicker.chooseTimeAndAmPm(event);
     }
 
 }
