@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -36,19 +38,19 @@
          </font>
       </Label>
       <TextField fx:id="orderNameTextField" layoutX="41.0" layoutY="76.0" onAction="#orderNameTextFieldOnAction" prefHeight="25.0" prefWidth="304.0" />
-      <TextField fx:id="descriptionTextField" layoutX="42.0" layoutY="254.0" onAction="#descriptionTextFieldOnAction" prefHeight="25.0" prefWidth="221.0" />
-      <TextField fx:id="qtyTextField" layoutX="269.0" layoutY="254.0" onAction="#qtyTextFieldOnAction" prefHeight="25.0" prefWidth="74.0" />
-      <Label layoutX="42.0" layoutY="231.0" text="Description">
+      <TextField fx:id="descriptionTextField" layoutX="42.0" layoutY="300.0" onAction="#descriptionTextFieldOnAction" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="qtyTextField" layoutX="269.0" layoutY="300.0" onAction="#qtyTextFieldOnAction" prefHeight="25.0" prefWidth="74.0" />
+      <Label layoutX="42.0" layoutY="277.0" text="Description">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="271.0" layoutY="233.0" text="Qty">
+      <Label layoutX="271.0" layoutY="279.0" text="Qty">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="269.0" layoutY="304.0" onAction="#addItemBtnOnAction" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: DODGERBLUE;" text="Add" textFill="WHITE">
+      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="269.0" layoutY="350.0" onAction="#addItemBtnOnAction" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: DODGERBLUE;" text="Add" textFill="WHITE">
          <font>
             <Font name="Georgia Bold" size="13.0" />
          </font>
@@ -58,7 +60,7 @@
             <Font name="Georgia Bold" size="13.0" />
          </font>
       </JFXButton>
-      <Label layoutX="147.0" layoutY="198.0" prefHeight="16.0" prefWidth="73.0" text="Add Items">
+      <Label layoutX="147.0" layoutY="244.0" prefHeight="16.0" prefWidth="73.0" text="Add Items">
          <font>
             <Font name="Georgia" size="14.0" />
          </font>
@@ -69,5 +71,18 @@
             <Font name="Georgia" size="12.0" />
          </font>
       </Label>
+      <Label layoutX="42.0" layoutY="179.0" text="Order Time">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="163.0" onAction="#timePickerOnAction" prefHeight="37.0" prefWidth="73.0" style="-fx-background-color: DODGERBLUE; -fx-border-radius: 10; -fx-background-radius: 10;" text="" AnchorPane.leftAnchor="189.0" AnchorPane.topAnchor="163.0">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img.png" />
+               </image></ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
