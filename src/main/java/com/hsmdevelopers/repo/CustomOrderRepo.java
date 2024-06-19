@@ -6,6 +6,7 @@ import com.hsmdevelopers.model.tm.CustomOrderTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -105,5 +106,22 @@ public class CustomOrderRepo {
             throw new RuntimeException(e);
         }
         return 0;
+    }
+
+    public static int getCountByDate(Date passedDate) {
+        String sql = "SELECT SUM(order_count) FROM custom_orders WHERE date = ?";
+
+        try {
+            PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+            statement.setObject(1, passedDate);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
