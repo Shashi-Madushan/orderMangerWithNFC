@@ -1,5 +1,6 @@
 package com.hsmdevelopers.controller;
 
+import com.hsmdevelopers.repo.CustomOrderRepo;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -70,24 +71,45 @@ public class ReportDayViewController {
     @FXML
     private Label totalOrdersLbl;
 
+    @FXML
+    private Label customOrderLbl;
+
     private LocalTime endTime;
     private LocalTime startTime;
     private Date passedDate;
     private String start;
     private String end;
+    private int orderCount;
+    private int customCount;
+    private int takenCount;
 
     public void initialize(Date date) {
+        passedDate = date;
         setCellValueFactory();
         loadData(date);
-        passedDate = date;
     }
     private void loadData(Date date) {
         try {
             ObservableList<OrderTm> list = DayViewRepo.getData(date);
             tblOrder.setItems(list);
+            setCounts(list);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+    }
+
+    private void setCounts(ObservableList<OrderTm> list) {
+        orderCount = list.size();
+        takenCount = 0;
+        for (OrderTm order : list) {
+            if (order.getTaken().equals("Taken")) {
+                takenCount++;
+            }
+        }
+        customCount = CustomOrderRepo.getCountByDate(passedDate);
+        totalOrdersLbl.setText(String.valueOf(orderCount+customCount));
+        takenOrdersLbl.setText(String.valueOf(takenCount));
+        customOrderLbl.setText(String.valueOf(customCount));
     }
 
 
@@ -135,6 +157,7 @@ public class ReportDayViewController {
                 new Alert(Alert.AlertType.WARNING,"Start Time can't be empty !!").show();
             }
             tblOrder.setItems(list);
+            setCounts(list);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
