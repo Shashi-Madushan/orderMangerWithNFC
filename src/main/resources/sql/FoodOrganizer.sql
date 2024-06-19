@@ -30,9 +30,17 @@ CREATE TABLE orders(
 
 CREATE TABLE custom_orders(
                       custom_order_id INT AUTO_INCREMENT PRIMARY KEY ,
-                      description VARCHAR(100),
-                      order_count INT(5),
+                      order_name VARCHAR(100),
+                      order_count INT,
                       date DATE,
                       place_time TIME
+);
+
+CREATE TABLE custom_orders_items(
+                              custom_order_items_id INT AUTO_INCREMENT PRIMARY KEY ,
+                              description VARCHAR(100),
+                              count INT,
+                              custom_order_id INT,
+                              FOREIGN KEY (custom_order_id) REFERENCES custom_orders(custom_order_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 

@@ -35,9 +35,9 @@
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="orderNameTextField" layoutX="41.0" layoutY="76.0" prefHeight="25.0" prefWidth="304.0" />
-      <TextField fx:id="descriptionTextField" layoutX="42.0" layoutY="254.0" prefHeight="25.0" prefWidth="221.0" />
-      <TextField fx:id="qtyTextField" layoutX="269.0" layoutY="254.0" prefHeight="25.0" prefWidth="74.0" />
+      <TextField fx:id="orderNameTextField" layoutX="41.0" layoutY="76.0" onAction="#orderNameTextFieldOnAction" prefHeight="25.0" prefWidth="304.0" />
+      <TextField fx:id="descriptionTextField" layoutX="42.0" layoutY="254.0" onAction="#descriptionTextFieldOnAction" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="qtyTextField" layoutX="269.0" layoutY="254.0" onAction="#qtyTextFieldOnAction" prefHeight="25.0" prefWidth="74.0" />
       <Label layoutX="42.0" layoutY="231.0" text="Description">
          <font>
             <Font name="Georgia" size="14.0" />
@@ -63,7 +63,7 @@
             <Font name="Georgia" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="numberOfPeapolTextField" layoutX="189.0" layoutY="122.0" />
+      <TextField fx:id="numberOfPeopleTextField" layoutX="189.0" layoutY="122.0" onAction="#numberOfPeopleTextFieldOnAction" />
       <Label layoutX="41.0" layoutY="126.0" text="Number Of People">
          <font>
             <Font name="Georgia" size="12.0" />

@@ -1,6 +1,7 @@
 package com.hsmdevelopers.repo;
 
 import com.hsmdevelopers.db.DbConnection;
+import com.hsmdevelopers.model.CustomOrder;
 import com.hsmdevelopers.model.tm.CustomOrderTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,19 +15,20 @@ import java.time.YearMonth;
 
 public class CustomOrderRepo {
 
-    public static boolean save(String description, int orderCount) throws SQLException {
-        String sql = "INSERT INTO custom_orders (description, order_count, date, place_time) VALUES (?,?,?,?)";
+    public static boolean save(CustomOrder customOrder) throws SQLException {
+        String sql = "INSERT INTO custom_orders (custom_order_id,order_name, order_count, date, place_time) VALUES (?,?,?,?,?)";
 
         PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql);
-        statement.setString(1, description);
-        statement.setInt(2, orderCount);
-        statement.setObject(3, LocalDate.now());
-        statement.setObject(4, LocalTime.now());
+        statement.setInt(1, customOrder.getCustomOrderId());
+        statement.setString(2, customOrder.getOrderName());
+        statement.setInt(3, customOrder.getOrderCount());
+        statement.setObject(4, customOrder.getDate());
+        statement.setObject(5, customOrder.getPlaceTime());
 
         return statement.executeUpdate() > 0;
     }
 
-    public static int getOrderCount() throws SQLException {
+    public static int getOrderCountTotal() throws SQLException {
         String sql = "SELECT SUM(order_count) FROM custom_orders WHERE date = ?";
 
         PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql);
@@ -89,5 +91,19 @@ public class CustomOrderRepo {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    public static int getOrderCount() {
+        String sql = "SELECT COUNT(custom_order_id) FROM custom_orders";
+
+        try {
+            ResultSet resultSet = DbConnection.getInstance().getConnection().prepareStatement(sql).executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return 0;
     }
 }

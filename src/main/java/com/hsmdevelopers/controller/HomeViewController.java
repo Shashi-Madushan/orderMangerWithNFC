@@ -191,7 +191,7 @@ public class HomeViewController {
             totalEmployeeLabel.setText(String.valueOf(employeeCount));
 
             int orderCount = OrdersRepo.getTotalOrder();
-            int customOrderCount = CustomOrderRepo.getOrderCount();
+            int customOrderCount = CustomOrderRepo.getOrderCountTotal();
             totalOrderCountLabel.setText(String.valueOf(orderCount + customOrderCount));
 
             int takenOrderCount = OrdersRepo.getTakenOrderCount();
