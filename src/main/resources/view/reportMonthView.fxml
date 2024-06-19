@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="570.0" minWidth="800.0" prefHeight="570.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hsmdevelopers.controller.ReportMonthViewController">
@@ -40,17 +41,43 @@
             </JFXButton>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="528.0" layoutY="474.0" minHeight="30.0" minWidth="258.0" prefHeight="30.0" prefWidth="258.0" AnchorPane.bottomAnchor="66.0" AnchorPane.rightAnchor="14.0">
-         <children>
-            <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" text="tot oder" HBox.hgrow="ALWAYS" />
-            <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="16.0" prefWidth="134.0" text="tak oder" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
       <JFXButton layoutX="665.0" layoutY="512.0" onAction="#genaratePdfBtnOnAction" prefHeight="33.0" prefWidth="119.0" style="-fx-background-color: #1e90ff;" text="Genarate PDF" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="16.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <VBox alignment="CENTER" layoutX="44.0" layoutY="475.0" prefHeight="75.0" prefWidth="257.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="44.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="126.0" text="Toatal Orders" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalOrderCountLbl" alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="tot oder" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" minHeight="30.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="131.0" text="Taken Orders" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenOrderCountLbl" alignment="CENTER" prefHeight="17.0" prefWidth="94.0" text="tak oder" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
 
    </children>
 </AnchorPane>
