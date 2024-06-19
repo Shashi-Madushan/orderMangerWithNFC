@@ -3,12 +3,10 @@ package com.hsmdevelopers.controller;
 import com.hsmdevelopers.db.DbConnection;
 import com.hsmdevelopers.model.CustomOrder;
 import com.hsmdevelopers.model.CustomOrderItem;
-import com.hsmdevelopers.model.TimePicker;
+import com.hsmdevelopers.util.TimePicker;
 import com.hsmdevelopers.model.tm.CustomOrderItemTm;
-import com.hsmdevelopers.model.tm.EmployeeTm;
 import com.hsmdevelopers.repo.CustomOrderItemRepo;
 import com.hsmdevelopers.repo.CustomOrderRepo;
-import com.hsmdevelopers.repo.EmployeeRepo;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +55,8 @@ public class CustomeOrdersController {
 
     @FXML
     private TextField qtyTextField;
+
+    LocalTime time = null;
 
     public void initialize() {
         setCellValueFactory();
@@ -136,7 +136,13 @@ public class CustomeOrdersController {
         ObservableList<CustomOrderItemTm> items = FXCollections.observableArrayList(orderItemTabel.getItems());
         if (!orderNameTextField.getText().isEmpty() && !items.isEmpty()) {
             int customerOrderCount = CustomOrderRepo.getOrderCount();
-            CustomOrder customOrder = new CustomOrder(customerOrderCount + 1 ,orderNameTextField.getText(),Integer.parseInt(numberOfPeopleTextField.getText()), Date.valueOf(LocalDate.now()), Time.valueOf(LocalTime.now()));
+
+            CustomOrder customOrder;
+            if (time != null){
+                customOrder = new CustomOrder(customerOrderCount + 1 ,orderNameTextField.getText(),Integer.parseInt(numberOfPeopleTextField.getText()), Date.valueOf(LocalDate.now()), Time.valueOf(time));
+            } else {
+                customOrder = new CustomOrder(customerOrderCount + 1 ,orderNameTextField.getText(),Integer.parseInt(numberOfPeopleTextField.getText()), Date.valueOf(LocalDate.now()), Time.valueOf(LocalTime.now()));
+            }
 
             ArrayList<CustomOrderItem> orderItems = new ArrayList<>();
             for (CustomOrderItemTm item : items) {
@@ -145,6 +151,7 @@ public class CustomeOrdersController {
             try {
                 if (placeOrder(customOrder,orderItems)){
                     new Alert(Alert.AlertType.CONFIRMATION,"Order Placed !!").show();
+                    clear();
                 } else {
                     new Alert(Alert.AlertType.ERROR,"Order Not Placed !!").show();
                 }
@@ -152,6 +159,13 @@ public class CustomeOrdersController {
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
         }
+    }
+
+    private void clear() {
+        orderItemTabel.getItems().clear();
+        numberOfPeopleTextField.clear();
+        orderNameTextField.clear();
+        time = null;
     }
 
     private boolean placeOrder(CustomOrder customOrder, ArrayList<CustomOrderItem> orderItems) throws SQLException {
@@ -177,7 +191,7 @@ public class CustomeOrdersController {
 
     @FXML
     void timePickerOnAction(ActionEvent event) {
-       LocalTime time = TimePicker.chooseTimeAndAmPm(event);
+       time = TimePicker.chooseTimeAndAmPm(event);
     }
 
 }

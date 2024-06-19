@@ -143,7 +143,6 @@ public class ReportCustomViewController {
             if (!file.getPath().endsWith(".pdf")) {
                 file = new File(file.getPath() + ".pdf");
             }
-            System.out.println("Saving to: " + file.getAbsolutePath());  // Debugging line
             try {
                 createPDF(file.getAbsolutePath(), monthViewTabel);
                 new Alert(Alert.AlertType.CONFIRMATION,"PDF saved successfully").show();

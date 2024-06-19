@@ -1,8 +1,9 @@
-package com.hsmdevelopers.model;
+package com.hsmdevelopers.util;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 import java.time.Month;
@@ -18,7 +19,7 @@ public class YearMonthPicker {
         DialogPane dialogPane = dialog.getDialogPane();
         dialogPane.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
-        TextField yearField = new TextField();
+        javafx.scene.control.TextField yearField = new TextField();
         yearField.setPromptText("Year");
 
         ComboBox<String> monthBox = new ComboBox<>();

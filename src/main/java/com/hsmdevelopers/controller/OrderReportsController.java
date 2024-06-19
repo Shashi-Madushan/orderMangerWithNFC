@@ -2,7 +2,7 @@ package com.hsmdevelopers.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import com.hsmdevelopers.model.TimePicker;
+import com.hsmdevelopers.util.TimePicker;
 import com.hsmdevelopers.model.tm.OrderTm;
 import com.hsmdevelopers.repo.OrdersRepo;
 import com.hsmdevelopers.repo.FilterOrdersRepo;

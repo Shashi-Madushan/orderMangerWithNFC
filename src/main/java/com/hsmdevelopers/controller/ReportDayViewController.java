@@ -9,7 +9,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import com.jfoenix.controls.JFXButton;
-import com.hsmdevelopers.model.TimePicker;
+import com.hsmdevelopers.util.TimePicker;
 import com.hsmdevelopers.model.tm.OrderTm;
 import com.hsmdevelopers.repo.DayViewRepo;
 import com.hsmdevelopers.util.GlobalVariables;

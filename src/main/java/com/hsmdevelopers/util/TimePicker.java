@@ -1,4 +1,4 @@
-package com.hsmdevelopers.model;
+package com.hsmdevelopers.util;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
