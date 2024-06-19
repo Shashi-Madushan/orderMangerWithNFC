@@ -104,7 +104,7 @@ public class SettingsViewController {
 
     public Button createDeleteButton() {
         Button button = new Button("Delete");
-        button.setStyle("-fx-background-color: red;");
+        button.setStyle("-fx-background-color: red;-fx-text-fill: white;");
 
         button.setOnAction((e) -> {
             ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
@@ -137,9 +137,6 @@ public class SettingsViewController {
 
     private void visible(boolean isVisible) {
         changeDetailsPane.setVisible(isVisible);
-//        newUnameTExtField.setVisible(isVisible);
-//        newPwTextField.setVisible(isVisible);
-//        newPwrReenterTextField.setVisible(isVisible);
         changeBtn.setVisible(isVisible);
     }
 

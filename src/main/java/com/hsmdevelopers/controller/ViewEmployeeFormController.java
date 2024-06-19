@@ -70,7 +70,7 @@ public class ViewEmployeeFormController {
 
     private Button createDeleteButton() {
         Button button = new Button("Delete");
-        button.setStyle("-fx-background-color: red;");
+        button.setStyle("-fx-background-color: red;-fx-text-fill: white;");
 
         button.setOnAction((e) -> {
             ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
