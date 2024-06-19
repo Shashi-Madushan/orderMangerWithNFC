@@ -3,6 +3,7 @@ package com.hsmdevelopers.controller;
 import com.hsmdevelopers.db.DbConnection;
 import com.hsmdevelopers.model.CustomOrder;
 import com.hsmdevelopers.model.CustomOrderItem;
+import com.hsmdevelopers.util.Regex;
 import com.hsmdevelopers.util.TimePicker;
 import com.hsmdevelopers.model.tm.CustomOrderItemTm;
 import com.hsmdevelopers.repo.CustomOrderItemRepo;
@@ -14,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -70,12 +72,12 @@ public class CustomeOrdersController {
 
     @FXML
     void addItemBtnOnAction(ActionEvent event) {
-        if (!descriptionTextField.getText().isEmpty() && !qtyTextField.getText().isEmpty()) {
+        if (!descriptionTextField.getText().isEmpty() && !qtyTextField.getText().isEmpty() && isValidQty()) {
             orderItemTabel.getItems().add(new CustomOrderItemTm(descriptionTextField.getText(),Integer.parseInt(qtyTextField.getText()),createDeleteButton()));
+            descriptionTextField.clear();
+            qtyTextField.clear();
+            descriptionTextField.requestFocus();
         }
-        descriptionTextField.clear();
-        qtyTextField.clear();
-        descriptionTextField.requestFocus();
     }
 
     private Button createDeleteButton() {
@@ -134,7 +136,7 @@ public class CustomeOrdersController {
     @FXML
     void placeOrderBtnOnAction(ActionEvent event) {
         ObservableList<CustomOrderItemTm> items = FXCollections.observableArrayList(orderItemTabel.getItems());
-        if (!orderNameTextField.getText().isEmpty() && !items.isEmpty()) {
+        if (!orderNameTextField.getText().isEmpty() && !items.isEmpty() && isValidCount()) {
             int customerOrderCount = CustomOrderRepo.getOrderCount();
 
             CustomOrder customOrder;
@@ -194,4 +196,23 @@ public class CustomeOrdersController {
        time = TimePicker.chooseTimeAndAmPm(event);
     }
 
+    private boolean isValidQty() {
+        if (!Regex.setTextColor(com.hsmdevelopers.util.TextField.COUNT, qtyTextField)) return false;
+        return true;
+    }
+
+    private boolean isValidCount(){
+        if (!Regex.setTextColor(com.hsmdevelopers.util.TextField.COUNT, numberOfPeopleTextField)) return false;
+        return true;
+    }
+
+    @FXML
+    void numberOfPeopleTextFieldKeyReleaseAction(KeyEvent event) {
+        Regex.setTextColor(com.hsmdevelopers.util.TextField.COUNT, numberOfPeopleTextField);
+    }
+
+    @FXML
+    void qtyTextFieldKeyReleaseAction(KeyEvent event) {
+        Regex.setTextColor(com.hsmdevelopers.util.TextField.COUNT, qtyTextField);
+    }
 }
