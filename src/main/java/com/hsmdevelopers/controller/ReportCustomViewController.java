@@ -202,6 +202,13 @@ public class ReportCustomViewController {
         }
 
         document.add(pdfTable);
+        document.add(new Paragraph("\n"));
+        // Add the footer description under the table
+        String footerDescription = "Total Orders : " + totalOrderCountLbl.getText() + "\nTaken Orders : " + takenOrderCountLbl.getText();
+        Paragraph pdfFooterDescription = new Paragraph(footerDescription)
+                .setFontSize(12)
+                .setTextAlignment(TextAlignment.LEFT);
+        document.add(pdfFooterDescription);
         document.close();
     }
 }

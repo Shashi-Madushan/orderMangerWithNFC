@@ -77,8 +77,8 @@ public class ReportDayViewController {
     private LocalTime endTime;
     private LocalTime startTime;
     private Date passedDate;
-    private String start;
-    private String end;
+    private String start = "null";
+    private String end = "null";
     private int orderCount;
     private int customCount;
     private int takenCount;
@@ -267,8 +267,15 @@ public class ReportDayViewController {
             }
 
         }
-
         document.add(pdfTable);
+        document.add(new Paragraph("\n"));
+        // Add the footer description under the table
+        String footerDescription = "Total Orders : " + totalOrdersLbl.getText() + "\nTaken Orders : " + takenOrdersLbl.getText() + "\nCustomOrderCount : " + customOrderLbl.getText();
+        Paragraph pdfFooterDescription = new Paragraph(footerDescription)
+                .setFontSize(12)
+                .setTextAlignment(TextAlignment.LEFT);
+        document.add(pdfFooterDescription);
+
         document.close();
     }
 }
