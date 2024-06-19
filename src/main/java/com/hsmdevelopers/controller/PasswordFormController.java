@@ -48,4 +48,9 @@ public class PasswordFormController {
         }
     }
 
+    @FXML
+    void btnCancelOnAction(ActionEvent event) {
+        Stage stage = (Stage) this.passwordForm.getScene().getWindow();
+        stage.close();
+    }
 }

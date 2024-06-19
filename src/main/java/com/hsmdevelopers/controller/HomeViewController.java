@@ -1,9 +1,13 @@
 package com.hsmdevelopers.controller;
 
+import com.hsmdevelopers.model.CustomOrder;
 import com.hsmdevelopers.model.tm.CustomOrderTm;
+import com.hsmdevelopers.model.tm.OrderItemTm;
+import com.hsmdevelopers.repo.CustomOrderItemRepo;
 import com.hsmdevelopers.repo.CustomOrderRepo;
 import com.hsmdevelopers.repo.EmployeeRepo;
 import com.hsmdevelopers.repo.OrdersRepo;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -12,9 +16,9 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,7 +31,7 @@ public class HomeViewController {
     private BarChart<String, Number> barChart;
 
     @FXML
-    private TableView<CustomOrderTm> customOrderTabel;
+    private TableView<OrderItemTm> customOrderTabel;
 
     @FXML
     private TableColumn<?, ?> customOrderTabelCountColl;
@@ -38,20 +42,31 @@ public class HomeViewController {
     @FXML
     private Label dateLabel;
 
-
     @FXML
     private LineChart<String, Number> lineChart;
 
+    @FXML
+    private TableColumn<?, ?> oderNameCol;
 
+    @FXML
+    private TableView<CustomOrderTm> oderTbl;
+
+    @FXML
+    private TableColumn<?, ?> peopleCol;
 
     @FXML
     private Label takenOrderCountLabel;
+
+    @FXML
+    private TableColumn<?, ?> timeCol;
 
     @FXML
     private Label totalEmployeeLabel;
 
     @FXML
     private Label totalOrderCountLabel;
+
+    ObservableList<CustomOrder> customOrders = FXCollections.observableArrayList();
 
     public void initialize() {
         dateLabel.setText(String.valueOf(LocalDate.now()));
@@ -174,15 +189,21 @@ public class HomeViewController {
 
     private void loadData() {
         try {
-            ObservableList<CustomOrderTm> list = CustomOrderRepo.getData();
-            customOrderTabel.setItems(list);
-        } catch (SQLException e) {
+            customOrders = CustomOrderRepo.getData();
+            for (CustomOrder customOrder : customOrders) {
+                oderTbl.getItems().add(new CustomOrderTm(customOrder.getOrderName(),customOrder.getOrderCount(),customOrder.getPlaceTime()));
+            }
+        } catch (Exception e) {
+
         }
     }
 
     private void setCellValueFactory() {
         customOrderTabelDesecriptionColl.setCellValueFactory(new PropertyValueFactory<>("description"));
         customOrderTabelCountColl.setCellValueFactory(new PropertyValueFactory<>("orderCount"));
+        oderNameCol.setCellValueFactory(new PropertyValueFactory<>("orderName"));
+        peopleCol.setCellValueFactory(new PropertyValueFactory<>("count"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("orderTime"));
     }
 
     private void setCounts() {
@@ -200,10 +221,17 @@ public class HomeViewController {
         }
     }
 
+    @FXML
+    void oderTblOnClickAction(MouseEvent event) {
+        TablePosition<CustomOrderTm, ?> pos = oderTbl.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        int customOrderId = customOrders.get(row).getCustomOrderId();
 
+        try {
+            ObservableList<OrderItemTm> items = CustomOrderItemRepo.getData(customOrderId);
+            customOrderTabel.setItems(items);
+        } catch (Exception e) {
 
-
-
-
-
+        }
+    }
 }

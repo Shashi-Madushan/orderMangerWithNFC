@@ -2,7 +2,7 @@ package com.hsmdevelopers.repo;
 
 import com.hsmdevelopers.db.DbConnection;
 import com.hsmdevelopers.model.CustomOrder;
-import com.hsmdevelopers.model.tm.CustomOrderTm;
+import com.hsmdevelopers.model.tm.OrderItemTm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.YearMonth;
 
 public class CustomOrderRepo {
@@ -41,16 +40,16 @@ public class CustomOrderRepo {
         return 0;
     }
 
-    public static ObservableList<CustomOrderTm> getData() throws SQLException {
-        ObservableList<CustomOrderTm> list = FXCollections.observableArrayList();
+    public static ObservableList<CustomOrder> getData() throws SQLException {
+        ObservableList<CustomOrder> list = FXCollections.observableArrayList();
 
-        String sql = "SELECT description,order_count FROM custom_orders WHERE date = ?";
+        String sql = "SELECT * FROM custom_orders WHERE date = ?";
 
         PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql);
         statement.setObject(1, LocalDate.now());
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            list.add(new CustomOrderTm(resultSet.getString("description"), resultSet.getInt("order_count")));
+            list.add(new CustomOrder(resultSet.getInt("custom_order_id"),resultSet.getString("order_name"), resultSet.getInt("order_count"),resultSet.getDate("date"),resultSet.getTime("place_time")));
         }
         return list;
     }

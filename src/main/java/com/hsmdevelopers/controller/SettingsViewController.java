@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -61,6 +62,9 @@ public class SettingsViewController {
 
     @FXML
     private TextField txtUserName;
+
+    @FXML
+    private Pane changeDetailsPane;
 
     ObservableList<UserTm> users = FXCollections.observableArrayList();
 
@@ -132,9 +136,10 @@ public class SettingsViewController {
     }
 
     private void visible(boolean isVisible) {
-        newUnameTExtField.setVisible(isVisible);
-        newPwTextField.setVisible(isVisible);
-        newPwrReenterTextField.setVisible(isVisible);
+        changeDetailsPane.setVisible(isVisible);
+//        newUnameTExtField.setVisible(isVisible);
+//        newPwTextField.setVisible(isVisible);
+//        newPwrReenterTextField.setVisible(isVisible);
         changeBtn.setVisible(isVisible);
     }
 
@@ -171,10 +176,10 @@ public class SettingsViewController {
 
     private void setText() {
         currentUnameLbel.setText(" " + UserRepo.user.getUserName());
-        currentPwTextFiled.setText("");
-        newPwTextField.setText("");
-        newPwrReenterTextField.setText("");
-        newUnameTExtField.setText("");
+        currentPwTextFiled.clear();
+        newPwTextField.clear();
+        newPwrReenterTextField.clear();
+        newUnameTExtField.clear();
     }
 
     @FXML
